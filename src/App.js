@@ -1,10 +1,10 @@
-
+import Currencies from './components/Currencies/Currencies';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      CRYPTOCURRENCIES PROJECT
+      <Currencies/>
     </div>
   );
 }
