@@ -10,6 +10,7 @@ async function getCurrenciesData() {
 
 const Currencies = () => {
 	const [currencies, setCurrencies] = useState([]);
+	const [search, setSearch] = useState('');
 
 	useEffect(() => {
 		let timeoutId;
@@ -31,22 +32,40 @@ const Currencies = () => {
 	    };
 	}, []);
 
+	const filteredCurrencies = currencies.filter(currency => (
+		currency.name.toLowerCase().includes(search.toLowerCase()) || 
+    currency.symbol.toLowerCase().includes(search.toLowerCase())
+	));
+
+	const handleChange = (e) => {
+		setSearch(e.target.value);
+	};
+
 	return (
-		<div className="currency-list">
-			{currencies.map(currency => {
-				return (
-					<button
-						key={currency.id}
-					>
-						<div className="currency-row">
-							<img src={currency.image}/>
-							<div className="currency-name">{currency.name}</div>
-							<div className="currency-symbol">{currency.symbol}</div>
-							<div className="currency-price">{currency.current_price}$</div>
-						</div>
-					</button>
-				);
-			})}
+		<div className="currency-app">
+			<div className="currency-search">
+				<h1 className="currency-text">Search a cryptocurrency</h1>
+				<form>
+					<input type="text" placeholder="Search..." className="currency-input" onChange={handleChange}/>
+				</form>
+			</div>
+			<div className="currency-list">
+				{filteredCurrencies.map(currency => {
+					return (
+						<button
+							className="currency-button"
+							key={currency.id}
+						>
+							<div className="currency-row">
+								<img src={currency.image}/>
+								<div className="currency-name">{currency.name}</div>
+								<div className="currency-symbol">{currency.symbol}</div>
+								<div className="currency-price">{currency.current_price}$</div>
+							</div>
+						</button>
+					);
+				})}
+			</div>
 		</div>
 	)
 };
