@@ -63,12 +63,18 @@
 	background-color: #000;
 }
 
+.selected-button {
+  background-color: #000;
+  cursor: default;
+}
+
 .currency-row {
 	display: flex;
 	flex-direction: row;
 	height: 50px;
 	padding-right: 10%;
 	min-width: 200px;
+	width: 100%;
 	text-align: left;
 	align-items: center;
 }

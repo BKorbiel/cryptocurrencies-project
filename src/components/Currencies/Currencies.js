@@ -8,7 +8,7 @@ async function getCurrenciesData() {
   return response.json();
 }
 
-const Currencies = () => {
+const Currencies = ({onCurrencySelection, selectedCurrency}) => {
 	const [currencies, setCurrencies] = useState([]);
 	const [search, setSearch] = useState('');
 
@@ -41,6 +41,12 @@ const Currencies = () => {
 		setSearch(e.target.value);
 	};
 
+	const handleClick = (currency) => {
+		if (selectedCurrency!=currency.id) {
+			onCurrencySelection(currency);
+		}
+	};
+
 	return (
 		<div className="currency-app">
 			<div className="currency-search">
@@ -53,7 +59,8 @@ const Currencies = () => {
 				{filteredCurrencies.map(currency => {
 					return (
 						<button
-							className="currency-button"
+							className={["currency-button", selectedCurrency==currency.id ? "selected-button" : ""].join(" ")}
+							onClick={() => handleClick(currency)}
 							key={currency.id}
 						>
 							<div className="currency-row">
