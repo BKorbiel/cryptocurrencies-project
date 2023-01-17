@@ -1,0 +1,120 @@
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; 
+  border-top: 10px solid #383636; 
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.graph-app {
+  align-items: center;
+  width: 70vw;
+  min-width: 400px;
+  text-align: center;
+}
+
+.title {
+  align-items: center;
+  width: 70vw;
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.name {
+  text-align: left;
+  width: 50%;
+  font-size: 45px;
+}
+
+.info-container {
+  margin-left: 10%;
+  margin-bottom: 5px;
+  align-items: center;
+  width: 70vw;
+  min-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.info {
+  min-width: 50%;
+  text-align: left;
+}
+
+.graph-container img {
+  margin-left: 35%;
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+}
+
+.buttons-container {
+  text-align: left;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+
+}
+
+.time-button {
+  background-color: #4CAF50;
+  border: 1px solid rgba(27, 31, 35, .15);
+  color: white;
+  border-radius: 6px;
+  padding: 5px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.time-button:hover {
+  background-color: #000;
+}
+
+.selected-button {
+  background-color: #000;
+  cursor: default;
+}
+
+.close {
+  margin-left: auto; 
+  margin-right: 0;
+}
+
+.close-button {
+  background-color: #ff4500;
+  border: 1px solid rgba(27, 31, 35, .15);
+  color: white;
+  border-radius: 6px;
+  padding: 5px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px;
+  margin-right: 30px;
+  cursor: pointer;
+}
